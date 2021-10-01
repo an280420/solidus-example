@@ -1,24 +1,34 @@
-# README
+# Пример приложения на solidus
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Скачайте данный репозиторий
 
-Things you may want to cover:
+1. Перейдите в корень репозитория
+    
+    ```cd solidus-example ```
 
-* Ruby version
+1. В корне проекта создайте файл с переменными среды *.env* cледующего содержания
 
-* System dependencies
+    ```
+    DATABASE_NAME=solidus_example_development
+    DATABASE_USER=solidus
+    DATABASE_PASSWORD=123456
+    DATABASE_HOST=database
+    ```
 
-* Configuration
+1. Имея в распоряжении файл docker-compose.yml, вы можете создать ваши службы с помощью команды docker-compose up и создать исходные записи базы данных. Также вы можете проверить сохранение данных, останавливая работу контейнеров и удаляя их с помощью docker-compose down, а затем воссоздавая их. Во-первых, необходимо выполнить сборку образов и создать службы, запустив `docker-compose up` с флагом -d, который будет запускать контейнеры в фоновом режиме:
+    ```
+    docker-compose up -d
+    ```
+1.  Cоздайте базу данных в контейнере
+    ```
+    docker-compose exec app bundle exec rake db:create db:migrate
+    ```
+1.  Сконфигурируйте приложение 
+    ```
+    docker-compose exec app bundle exec bin/rails g solidus:install
+    ```
+1.  Для остановки приложения и удаления контейнеров используйте команду
+    ```
+    docker-compose down
+    ```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
