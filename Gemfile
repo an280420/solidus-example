@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'solidus', '~> 3.1'
 gem 'solidus_auth_devise'
+gem 'solidus_multi_vendor', github: 'an280420/solidus_multi_vendor'
