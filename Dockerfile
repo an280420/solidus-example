@@ -29,7 +29,7 @@ RUN apk add --update --no-cache \
       tzdata \
       yarn
 
-RUN gem install bundler -v 2.1.4
+RUN gem install bundler
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN bundle config build.nokogiri --use-system-libraries
