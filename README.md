@@ -42,3 +42,9 @@
     docker-compose down
     ```
 
+1.  Для доступа к консоли rails в докере используйте команду
+    ```
+    docker-compose exec app rails c
+    ```
+    Далее, для просмотра коллекций моделей наберите `Spree::User.all`, `Spree::Product.all`  и т.д.
+
